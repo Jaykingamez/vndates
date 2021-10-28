@@ -1,0 +1,34 @@
+<div class="container">
+    <div *ngIf="log != true">
+        <div class="row">
+            <div class="col-sm-3">
+                <app-visual-novel></app-visual-novel>
+            </div>
+            <div class="col-sm-7 text-center">
+                <textarea id="textMessage" placeholder="Please send a message."></textarea>
+                <div class="bottom-buttons">
+                    <button class="btn btn-dark" [routerLink]="['/main']">Home</button>
+                    <button class="btn btn-dark" [routerLink]="['/main/messages']">Conversations</button>
+                    <button class="btn btn-dark" (click)="seeLog()">Log</button>
+                    <button class="btn btn-dark" (click)="sendMessage()">Send</button>
+                    <!--<button class="btn btn-primary" (click)="">Cancel</button>!-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="log === true">
+        <div #conversation *ngFor="let message of messages" class="row message">
+            <div class="col">
+                <img id="messageProfile{{messages.indexOf(message)}}" height="100px" (error)="setRuv(messages.indexOf(message))">
+                <h2 id="messageUsername{{messages.indexOf(message)}}">{{message["messageUser"]}}</h2>
+            </div>
+            <div class="col">
+                <h5 id="message{{messages.indexOf(message)}}">{{message["messageText"]}}</h5>
+                <h6 id="timestamp{{messages.indexOf(message)}}"></h6>
+            </div>
+        </div>
+        <div class="bottom-buttons">
+            <button class="btn btn-dark" (click)="cancelLog()">Cancel Log</button>
+        </div>
+    </div>
+</div>

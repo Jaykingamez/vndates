@@ -1,0 +1,29 @@
+.scroll-container {
+    border: 4px solid #000;
+    display: flex;
+    justify-content: center;
+    height: 40%;
+    overflow: auto;
+}
+
+.margin {
+    margin: 4px;
+    text-align: center;
+}
+
+.borders {
+    border: 12px;
+    border: 4px solid #000;
+}
+
+.bottom-buttons {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 1030;
+    background: none;
+    border: none;
+    font-weight: bold;
+    color: #000000;
+    font-size: 30px;
+}

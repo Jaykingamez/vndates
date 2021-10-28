@@ -1,0 +1,96 @@
+<div>
+    <div class="row">
+        <div class="col-sm-3">
+            <app-visual-novel></app-visual-novel>
+        </div>
+        <div class="col-sm-7">
+            <form class="container" [formGroup]="realProfileForm" novalidate (ngSubmit)="onSubmit()" action="/upload" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <label for="realName">Name:</label>
+                                    <p>
+                                        <input formControlName="realName" id="realName" placeholder="Your name"></p>
+                                    <p *ngIf="realProfileForm.controls.realName.dirty && realProfileForm.controls.realName.hasError( 'required') ">
+                                        * Name is required!
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col text-center">
+                                    <label for="realAge ">Age:</label>
+                                    <p><input formControlName="realAge" id="realAge" placeholder="Your age"></p>
+                                    <p *ngIf="realProfileForm.controls.realAge.dirty && realProfileForm.controls.realAge.hasError( 'required') ">
+                                        * Age is required!
+                                    </p>
+                                    <p *ngIf="realProfileForm.controls.realAge.dirty && realProfileForm.controls.realAge.hasError( 'min') ">
+                                        * Age has to be more than 0!
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row ">
+                                <div class="col text-center">
+                                    <label for="realGender ">Gender:</label>
+                                    <p><input formControlName="realGender" id="realGender" placeholder="Your Gender"></p>
+                                    <p *ngIf="realProfileForm.controls.realGender.dirty && realProfileForm.controls.realGender.hasError( 'required') ">
+                                        * Gender is required!
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row ">
+                                <div class="col text-center">
+                                    <label for="realLocation ">Lives at:</label>
+                                    <p><input formControlName="realLocation" id="realLocation" placeholder="Your Location"></p>
+                                    <p *ngIf="realProfileForm.controls.realLocation.dirty && realProfileForm.controls.realLocation.hasError( 'required') ">
+                                        * Location is required!
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row ">
+                                <div class="col text-center">
+                                    <label for="realTagline ">Tagline:</label>
+                                    <p><input formControlName="realTagline" id="realTagline" placeholder="Your Tagline"></p>
+                                    <p *ngIf="realProfileForm.controls.realTagline.dirty && realProfileForm.controls.realTagline.hasError( 'required') ">
+                                        * Tagline is required!
+                                    </p>
+                                    <p *ngIf="realProfileForm.controls.realTagline.dirty && realProfileForm.controls.realTagline.hasError( 'maxLength') ">
+                                        * Tagline can only have a maximum of 50 characters.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row ">
+                                <div class="col text-center">
+                                    <label for="realDescription">Description:</label>
+                                    <p><input formControlName="realDescription" id="realDescription" placeholder="Your Description "></p>
+                                    <p *ngIf="realProfileForm.controls.realDescription.dirty && realProfileForm.controls.realDescription.hasError( 'required') ">
+                                        * Description is required!
+                                    </p>
+                                    <p *ngIf="realProfileForm.controls.realDescription.dirty && realProfileForm.controls.realDescription.hasError( 'maxLength') ">
+                                        * Description can only have a maximum of 300 characters.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="real-profile-vn-btn">
+                            <button class="btn btn-dark" *ngIf="accountId != userId && accountId != null" [routerLink]="['/main/matches']">Back to Matches</button>
+                            <button class="btn btn-dark" *ngIf="accountId === null || accountId === userId" type="submit " [disabled]="!realProfileForm.valid">Continue to Fake Profile</button>
+                        </div>
+
+                    </div>
+                    <div class="col text-center">
+                        <label for="realPhoto">Real Profile Photo:</label>
+                        <p><input type="file" accept="image/*" id="realPhoto" name="realPhoto" (change)="showImage($event.target.files)"></p>
+                        <img id="realPhotoDisplay" height="300" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

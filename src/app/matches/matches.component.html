@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <app-visual-novel></app-visual-novel>
+        </div>
+        <div class="col-sm-7">
+            <div class="scroll-container" *ngIf="matches.length > 0">
+                <div *ngFor="let match of matches" (click)="showSelection(matches.indexOf(match))">
+                    <div id="matchUser{{matches.indexOf(match)}}" class="margin">
+                        <h1>{{names[matches.indexOf(match)]}}</h1>
+                        <img id="matchImage{{matches.indexOf(match)}}" [src]="imageurls[matches.indexOf(match)]" (error)="setDefault(matches.indexOf(match))" height="200">
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-buttons">
+                <button class="btn btn-dark" [routerLink]="['/main']">Home</button>
+                <button class="btn btn-dark" *ngIf="selected != null" (click)="showReal()">Show Real Profile</button>
+                <button class="btn btn-dark" *ngIf="selected != null" [routerLink]="['/main/profile/fake/', matchIds[selected]]">See Fake Profile</button>
+                <button class="btn btn-dark" *ngIf="selected != null && permission.includes(matchIds[selected])" [routerLink]="['/main/profile/real/', matchIds[selected]]">See Real Profile</button>
+                <button class="btn btn-dark" *ngIf="selected != null" (click)="converseMatch()">Yes</button>
+                <button class="btn btn-dark" *ngIf="selected != null" (click)="deleteMatch()">No</button>
+            </div>
+        </div>
+    </div>
+</div>

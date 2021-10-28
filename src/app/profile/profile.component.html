@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <app-visual-novel></app-visual-novel>
+        </div>
+        <div class="col">
+            <div [routerLink]="['/main/profile/real/' + accountId]">
+                <h1>{{name}}</h1>
+                <img [src]="imageurl" width="300">
+            </div>
+            <div class="bottom-buttons">
+                <button class="btn btn-dark" [routerLink]="['/main']">Home</button>
+            </div>
+        </div>
+    </div>
+</div>

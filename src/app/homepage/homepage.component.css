@@ -1,0 +1,8 @@
+.homepageText {
+    margin-top: 100px;
+    transition: 0.2s;
+}
+
+.homepageText:hover {
+    font-size: 75px;
+}

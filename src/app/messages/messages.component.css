@@ -1,0 +1,27 @@
+.scroll-container {
+    border: 4px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Hide vertical scrollbar */
+    overflow-y: hidden;
+    height: 40%;
+}
+
+.bottom-buttons {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 1030;
+    background: none;
+    border: none;
+    font-weight: bold;
+    color: #000000;
+    font-size: 30px;
+}
+
+.margin {
+    margin-left: 5px;
+    text-align: center;
+    border: 2px solid #000;
+}

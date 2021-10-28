@@ -1,0 +1,93 @@
+<div>
+    <div class="row">
+        <div class="col-sm-3">
+            <app-visual-novel></app-visual-novel>
+        </div>
+        <div class="col-sm-7">
+            <form class="container" [formGroup]="fakeProfileForm" novalidate (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col text-center">
+                                <label for="fakeName">Name:</label>
+                                <p><input formControlName="fakeName" id=”fakeName” placeholder="Your name"></p>
+                                <p *ngIf="fakeProfileForm.controls.fakeName.dirty && fakeProfileForm.controls.fakeName.hasError('required')">
+                                    * Name is required!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-center">
+                                <label for="fakeAge">Age:</label>
+                                <p><input formControlName="fakeAge" id=”fakeAge” placeholder="Your age"></p>
+                                <p *ngIf="fakeProfileForm.controls.fakeAge.dirty && fakeProfileForm.controls.fakeAge.hasError('required')">
+                                    * Age is required!
+                                </p>
+                                <p *ngIf="fakeProfileForm.controls.fakeAge.dirty && fakeProfileForm.controls.fakeAge.hasError('min')">
+                                    * Age has to be more than 0!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-center">
+                                <label for="fakeGender">Gender:</label>
+                                <p><input formControlName="fakeGender" id=”fakeGender” placeholder="Your Gender"></p>
+                                <p *ngIf="fakeProfileForm.controls.fakeGender.dirty && fakeProfileForm.controls.fakeGender.hasError('required')">
+                                    * Gender is required!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-center">
+                                <label for="fakeLocation">Lives at:</label>
+                                <p><input formControlName="fakeLocation" id=”fakeLocation” placeholder="Your Location"></p>
+                                <p *ngIf="fakeProfileForm.controls.fakeLocation.dirty && fakeProfileForm.controls.fakeLocation.hasError('required')">
+                                    * Location is required!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-center">
+                                <label for="fakeTagline">Tagline:</label>
+                                <p><input formControlName="fakeTagline" id=”fakeTagline” placeholder="Your Tagline"></p>
+                                <p *ngIf="fakeProfileForm.controls.fakeTagline.dirty && fakeProfileForm.controls.fakeTagline.hasError('required')">
+                                    * Tagline is required!
+                                </p>
+                                <p *ngIf="fakeProfileForm.controls.fakeTagline.dirty && fakeProfileForm.controls.fakeTagline.hasError('maxLength')">
+                                    * Tagline can only have a maximum of 50 characters.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col text-center">
+                                <label for="fakeDescription">Description:</label>
+                                <p><input formControlName="fakeDescription" id=”fakeDescription” placeholder="Your Description"></p>
+                                <p *ngIf="fakeProfileForm.controls.fakeDescription.dirty && fakeProfileForm.controls.fakeDescription.hasError('required')">
+                                    * Description is required!
+                                </p>
+                                <p *ngIf="fakeProfileForm.controls.fakeDescription.dirty && fakeProfileForm.controls.fakeDescription.hasError('maxLength')">
+                                    * Description can only have a maximum of 300 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        <label for="fakePhoto">Fake Profile Photo:</label>
+                        <p><input type="file" accept="image/*" formControlName="fakePhoto" id="fakePhoto" (change)="showImage($event.target.files)"></p>
+                        <img id="fakePhotoDisplay" height="300" />
+                    </div>
+                </div>
+
+                <div class="fake-profile-vn-btn">
+                    <button class="btn btn-dark" *ngIf="accountId != userId && accountId != null" [routerLink]="['/main/matches']">Back to Matches</button>
+                    <button class="btn btn-dark" *ngIf="accountId === null || accountId === userId" type="submit" [disabled]="!fakeProfileForm.valid">Continue</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

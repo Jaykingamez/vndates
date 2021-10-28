@@ -1,0 +1,27 @@
+.proportionRuv {
+    height: 100%;
+    overflow: hidden;
+}
+
+.vnbox {
+    height: 25%;
+    background-color: #ffffff;
+    border: 4px solid #000;
+}
+
+.vnbox h2 {
+    width: 15%;
+    text-align: center;
+    border-right: 4px solid #000;
+    border-bottom: 4px solid #000;
+    transition: 0.5s;
+}
+
+.vnbox h2:hover {
+    width: 30%;
+    font-size: 50px;
+}
+
+.vnbox h3 {
+    margin-left: 15px;
+}

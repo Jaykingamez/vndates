@@ -1,0 +1,18 @@
+a {
+    font-size: 300%;
+    margin-top: 30px;
+    margin-left: 30px;
+    transition: font-size 0.5s;
+}
+
+a:hover {
+    font-size: 500%;
+}
+
+img {
+    transition: transform 1s;
+}
+
+img:hover {
+    transform: rotate(360deg);
+}

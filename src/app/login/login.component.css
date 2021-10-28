@@ -1,0 +1,28 @@
+.login-vn-btn {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 1030;
+    background: none;
+    border: none;
+    font-weight: bold;
+    color: #000000;
+    font-size: 30px;
+}
+
+.form-inline label {
+    display: block;
+}
+
+div {
+    text-align: center;
+}
+
+input {
+    border-radius: 25px;
+    transition: font-size 0.5s;
+}
+
+input:hover {
+    font-size: 20px;
+}

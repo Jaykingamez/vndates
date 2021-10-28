@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <app-visual-novel></app-visual-novel>
+        </div>
+        <div class="col-sm-8">
+            <form [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit()">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="register_username"><h3>Username</h3></label>
+                                <p><input formControlName="register_username" id=”register_username” placeholder="Your username"></p>
+                                <p *ngIf="registerForm.controls.register_username.dirty && registerForm.controls.register_username.hasError('required')">
+                                    * Username is required!
+                                </p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="register_email"><h3>Email</h3></label>
+                                <p><input formControlName="register_email" id=”register_email” placeholder="Your email"></p>
+                                <p *ngIf="registerForm.controls.register_email.dirty && registerForm.controls.register_email.hasError('required')">
+                                    * Email is required!
+                                </p>
+                                <p *ngIf="registerForm.controls.register_email.dirty && registerForm.controls.register_email.hasError('email')">
+                                    * Email is not in the correct format!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div formGroupName="pwSet" class="form-group">
+                                <label for="register_password"><h3>Password</h3></label>
+                                <p><input formControlName="register_password" id=”register_password” type=”password” placeholder="Your password"></p>
+                                <p *ngIf="registerForm.get('pwSet.register_password').dirty && registerForm.get('pwSet.register_password').hasError('required')">
+                                    * Password is required
+                                </p>
+                                <p *ngIf="registerForm.get('pwSet.register_password').dirty && registerForm.get('pwSet.register_password').errors?.pattern">
+                                    * Password should contains at least 1 symbol, 1 uppercase and 1 lowercase character
+                                </p>
+
+                                <label for="register_confirm_password"><h3>Confirm password</h3></label>
+                                <p><input formControlName="register_confirm_password" id=”register_confirm_password” type=”password” placeholder="Confirm password"></p>
+                                <p *ngIf="registerForm.get('pwSet').hasError('notmatch')">
+                                    * Passwords do not match
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary register-vn-btn" type="submit" [disabled]="!registerForm.valid">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
