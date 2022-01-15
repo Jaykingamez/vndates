@@ -43,6 +43,6 @@ export class VisualNovelComponent implements OnInit {
   }
 
   setRuv(){
-    VisualNovelComponent.actorImage = "../../assets/images/ruv.png";
+    VisualNovelComponent.actorImage = "assets/images/ruv.png";
   }
 }
