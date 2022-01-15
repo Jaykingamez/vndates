@@ -9,7 +9,7 @@ export class VisualNovelComponent implements OnInit {
   // change the name that shows on the interface
   static actorName: string = "Ivan Illich";
   // change the image on the interface
-  static actorImage: string = "../../assets/images/ruv.png";
+  static actorImage: string = "assets/images/ruv.png";
   // change the text on the interface
   static content: string = "The name's Ivan Illich. Pleasure to meet you.";
 
