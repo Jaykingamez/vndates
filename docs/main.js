@@ -569,13 +569,13 @@ class VisualNovelComponent {
         VisualNovelComponent.actorImage = src;
     }
     setRuv() {
-        VisualNovelComponent.actorImage = "../../assets/images/ruv.png";
+        VisualNovelComponent.actorImage = "assets/images/ruv.png";
     }
 }
 // change the name that shows on the interface
 VisualNovelComponent.actorName = "Ivan Illich";
 // change the image on the interface
-VisualNovelComponent.actorImage = "../../assets/images/ruv.png";
+VisualNovelComponent.actorImage = "assets/images/ruv.png";
 // change the text on the interface
 VisualNovelComponent.content = "The name's Ivan Illich. Pleasure to meet you.";
 VisualNovelComponent.ɵfac = function VisualNovelComponent_Factory(t) { return new (t || VisualNovelComponent)(); };
@@ -706,7 +706,7 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const environment = {
-    production: true,
+    production: false,
     firebase: {
         apiKey: "AIzaSyBuvFz3_TYzgs_6gHR-6zodxakp2R2PY34",
         authDomain: "vndates-582b8.firebaseapp.com",
@@ -1173,7 +1173,7 @@ class HomepageComponent {
     constructor() { }
     ngOnInit() {
         // set the Visual Novel elements up
-        _visual_novel_visual_novel_component__WEBPACK_IMPORTED_MODULE_0__["VisualNovelComponent"].actorImage = "../../assets/images/ruv.png";
+        _visual_novel_visual_novel_component__WEBPACK_IMPORTED_MODULE_0__["VisualNovelComponent"].actorImage = "assets/images/ruv.png";
         _visual_novel_visual_novel_component__WEBPACK_IMPORTED_MODULE_0__["VisualNovelComponent"].actorName = "Ivan Illich";
     }
 }
