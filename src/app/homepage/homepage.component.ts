@@ -14,7 +14,7 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
     // set the Visual Novel elements up
-    VisualNovelComponent.actorImage = "../../assets/images/ruv.png";
+    VisualNovelComponent.actorImage = "/assets/images/ruv.png";
     VisualNovelComponent.actorName = "Ivan Illich";
   }
 
